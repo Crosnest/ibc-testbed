@@ -68,7 +68,7 @@ else
 fi
 
 echo '[INFO] Running gov proposal on Osmosis to revive change jail parameters...'
-cat << EOF
+cat << EOF > /tmp/proposal.json
 {
   "title": "Lower the block window for offline detection",
   "description": "If successfull, this proposal will lower the block window from 30k blocks to 2500.\n\nThe objective is to quickly remove offline validators who have an impact on the blockrate, mainly after epoch\n2500 blocks correspond to a duration of 4h\nNote that there is no slashing due to downtime and validators can unjail after 1 minute of being jailed, so this increases chain efficiency and allows validators to get back in active set immediately when their problem is fixed.",
@@ -81,7 +81,7 @@ cat << EOF
   ],
   "deposit": "1000uosmo"
 }
-EOF > /tmp/proposal.json
+EOF
 
 osmosisd tx gov submit-proposal param-change /tmp/proposal.json --from $IBC_KEY --home $OSMOSISD_HOME --keyring-backend test --broadcast-mode block --chain-id $OSMOSIS_CHAIN_ID --node $OSMOSIS_RPC --yes >/dev/null 2>&1
 osmosisd tx gov vote 1 yes --from $IBC_KEY --home $OSMOSISD_HOME --keyring-backend test --broadcast-mode block --chain-id $OSMOSIS_CHAIN_ID --node $OSMOSIS_RPC --yes >/dev/null 2>&1
