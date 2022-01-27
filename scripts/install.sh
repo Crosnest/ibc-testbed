@@ -22,6 +22,7 @@ cd ./tmp
 ##
 
 echo '[INFO] Installing Osmosis binary...'
+rm -rf osmosis
 git clone https://github.com/osmosis-labs/osmosis
 cd osmosis
 git checkout v6.0.0
@@ -29,6 +30,7 @@ make install
 cd ..
 
 echo '[INFO] Installing Lum Network binary...'
+rm -rf lum
 git clone https://github.com/lum-network/chain.git lum
 cd lum
 git checkout v1.0.5
@@ -37,6 +39,7 @@ make install
 cd ..
 
 echo '[INFO] Installing Ki binary...'
+rm -rf ki-tools
 git clone https://github.com/KiFoundation/ki-tools.git
 cd ki-tools
 git checkout -b v2.0.1 tags/2.0.1
@@ -44,6 +47,7 @@ make install
 cd ..
 
 echo '[INFO] Installing Gaiad binary...'
+rm -rf gaia
 git clone https://github.com/cosmos/gaia
 cd gaia
 git checkout v5.0.2
@@ -51,6 +55,7 @@ make install
 cd ..
 
 echo '[INFO] Installing Chain-maind binary...'
+rm -rf chain-main
 git clone https://github.com/crypto-org-chain/chain-main
 cd chain-main
 git checkout v3.3.3

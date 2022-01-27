@@ -71,7 +71,7 @@
     },
     "gov": {
       "deposit_params": {
-        "max_deposit_period": "1209600000000000ns",
+        "max_deposit_period": "60s",
         "min_deposit": [
           {
             "denom": "basecro",
@@ -89,7 +89,7 @@
       },
       "votes": [],
       "voting_params": {
-        "voting_period": "1209600000000000ns"
+        "voting_period": "60s"
       }
     },
     "ibc": {
