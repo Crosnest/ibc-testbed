@@ -19,8 +19,11 @@ while [ $i -ge 0 ]; do
     if gaiad query block 1 --node $COSMOS_RPC >/dev/null 2>&1; then
         ok=$((ok + 1))
     fi
+    if chain-maind query block 1 --node $CRYPTO_RPC >/dev/null 2>&1; then
+        ok=$((ok + 1))
+    fi
 
-    if [ "$ok" = "4" ]; then
+    if [ "$ok" = "5" ]; then
         exit 0
     fi
 

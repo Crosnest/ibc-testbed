@@ -50,6 +50,13 @@ git checkout v5.0.2
 make install
 cd ..
 
+echo '[INFO] Installing Chain-maind binary...'
+git clone https://github.com/crypto-org-chain/chain-main
+cd chain-main
+git checkout v3.3.3
+make install
+cd ..
+
 ##
 ## Install go relayer
 ##
@@ -77,3 +84,4 @@ sudo systemctl enable osmosisd
 sudo systemctl enable lumd
 sudo systemctl enable kid
 sudo systemctl enable gaiad
+sudo systemctl enable crypto

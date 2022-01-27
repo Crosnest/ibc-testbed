@@ -12,3 +12,5 @@ echo '[DEBUG] Ki wallet (chain): '$(kid keys show $IBC_KEY -a --home $KID_HOME -
 kid query bank balances $(kid keys show $IBC_KEY -a --home $KID_HOME --keyring-backend test) --node $KI_RPC
 echo '[DEBUG] Cosmos wallet (chain): '$(gaiad keys show $IBC_KEY -a --home $GAIAD_HOME --keyring-backend test)
 gaiad query bank balances $(gaiad keys show $IBC_KEY -a --home $GAIAD_HOME --keyring-backend test) --node $COSMOS_RPC
+echo '[DEBUG] Crypto.org wallet (chain): '$(chain-maind keys show $IBC_KEY -a --home $CHAINMAIND_HOME --keyring-backend test)
+chain-maind query bank balances $(chain-maind keys show $IBC_KEY -a --home $CHAINMAIND_HOME --keyring-backend test) --node $CRYPTO_RPC

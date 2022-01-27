@@ -31,4 +31,11 @@ chains:
     gas-adjustment: 2.0
     gas-prices: 0.00001uatom
     trusting-period: 36000s
+  - key: rly-testbed-key
+    chain-id: chainmain-ibctest-1
+    rpc-addr: http://127.0.0.1:16657
+    account-prefix: cro
+    gas-adjustment: 2.0
+    gas-prices: 0.00001basecro
+    trusting-period: 36000s
 paths: {}

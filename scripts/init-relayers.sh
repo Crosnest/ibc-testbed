@@ -16,6 +16,9 @@ kid tx bank send $(kid keys show $IBC_KEY -a --home $KID_HOME --keyring-backend 
 echo '[INFO] Sending 1Mi ATOM to relayer...'
 gaiad tx bank send $(gaiad keys show $IBC_KEY -a --home $GAIAD_HOME --keyring-backend test) $(rly keys show $COSMOS_CHAIN_ID $RLY_KEY --home $RELAYER_HOME) 1000000000000uatom --chain-id $COSMOS_CHAIN_ID --home $GAIAD_HOME --keyring-backend test --broadcast-mode block --node $COSMOS_RPC --yes
 
+echo '[INFO] Sending 1Mi CRO to relayer...'
+chain-maind tx bank send $(chain-maind keys show $IBC_KEY -a --home $CHAINMAIND_HOME --keyring-backend test) $(rly keys show $CHAINMAIND_ID $RLY_KEY --home $RELAYER_HOME) 1000000000000uatom --chain-id $CHAINMAIND_ID --home $CHAINMAIND_HOME --keyring-backend test --broadcast-mode block --node $CRYPTO_RPC --yes
+
 echo '[INFO] Initializing Ki <> Osmosis relayer...'
 rly paths generate $KI_CHAIN_ID $OSMOSIS_CHAIN_ID ki-osmosis --home $RELAYER_HOME
 rly tx clients ki-osmosis --home $RELAYER_HOME
@@ -39,3 +42,11 @@ sleep 5
 rly tx connection lum-osmosis --home $RELAYER_HOME
 sleep 5
 rly tx link lum-osmosis --home $RELAYER_HOME
+
+echo '[INFO] Initializing Cro <> Osmosis relayer...'
+rly paths generate $CHAINMAIND_ID $OSMOSIS_CHAIN_ID cro-osmosis --home $RELAYER_HOME
+rly tx clients cro-osmosis --home $RELAYER_HOME
+sleep 5
+rly tx connection cro-osmosis --home $RELAYER_HOME
+sleep 5
+rly tx link cro-osmosis --home $RELAYER_HOME

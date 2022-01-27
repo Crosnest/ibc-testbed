@@ -6,3 +6,4 @@ sudo systemctl start osmosisd
 sudo systemctl start lumd
 sudo systemctl start kid
 sudo systemctl start gaiad
+sudo systemctl start crypto
