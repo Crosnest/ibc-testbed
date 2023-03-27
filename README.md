@@ -7,12 +7,12 @@ The goal of this repository is to provide a testbed for IBC integrations and mul
 ## Basic features
 
 -   Launch 4 networks (Tendermint & Cosmos SDK based)
-    -   Lum Network
+    -   crypto.org Network
     -   Osmosis
     -   Cosmos Hub
     -   Ki chain
 -   Create IBC channels to Osmosis
-    -   Lum <> Osmosis
+    -   CdO <> Osmosis
     -   Ki <> Osmosis
     -   Cosmos <> Osmosis
 

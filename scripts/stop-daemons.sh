@@ -3,6 +3,6 @@
 ##
 
 sudo systemctl stop osmosisd
-sudo systemctl stop lumd
+sudo systemctl stop chain-maind
 sudo systemctl stop kid
 sudo systemctl stop gaiad

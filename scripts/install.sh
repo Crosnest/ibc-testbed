@@ -28,9 +28,9 @@ git checkout v6.0.0
 make install
 cd ..
 
-echo '[INFO] Installing Lum Network binary...'
-git clone https://github.com/lum-network/chain.git lum
-cd lum
+echo '[INFO] Installing chain-main Network binary...'
+git clone https://github.com/crypto-org-chain/chain-main chain-main
+cd chain-main
 git checkout v1.0.5
 go mod tidy
 make install
@@ -55,7 +55,7 @@ cd ..
 ##
 
 echo '[INFO] Installing Go Relayer...'
-git clone https://github.com/lum-network/relayer.git
+git clone https://github.com/cosmos/relayer
 cd relayer
 git checkout main
 make install
@@ -74,6 +74,6 @@ echo '[INFO] Installing networks daemons...'
 sudo cp ./daemons/* /etc/systemd/system/.
 sudo systemctl daemon-reload
 sudo systemctl enable osmosisd
-sudo systemctl enable lumd
+sudo systemctl enable chain-maind
 sudo systemctl enable kid
 sudo systemctl enable gaiad

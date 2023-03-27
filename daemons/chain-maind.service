@@ -1,0 +1,13 @@
+[Unit]
+Description=crypto-org-chain daemon
+After=network-online.target
+
+[Service]
+User=root
+ExecStart=/root/go/bin/chain-maind start --p2p.laddr tcp://0.0.0.0:27656 --rpc.laddr tcp://127.0.0.1:27657 --address tcp://0.0.0.0:27658 --grpc.address 0.0.0.0:27090 --grpc-web.address 0.0.0.0:27091 --home /root/.ibc-testbed/chain-maind
+Restart=on-failure
+RestartSec=3
+LimitNOFILE=4096
+
+[Install]
+WantedBy=multi-user.target

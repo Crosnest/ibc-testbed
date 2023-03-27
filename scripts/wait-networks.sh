@@ -10,7 +10,7 @@ while [ $i -ge 0 ]; do
     if osmosisd query block 1 --node $OSMOSIS_RPC >/dev/null 2>&1; then
         ok=$((ok + 1))
     fi
-    if lumd query block 1 --node $LUM_RPC >/dev/null 2>&1; then
+    if chain-maind query block 1 --node $CDO_RPC >/dev/null 2>&1; then
         ok=$((ok + 1))
     fi
     if kid query block 1 --node $KI_RPC >/dev/null 2>&1; then

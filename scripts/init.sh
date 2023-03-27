@@ -9,7 +9,7 @@ echo '[INFO] Testbed directory is '$IBC_TESDBED_HOME
 sh scripts/stop-daemons.sh
 
 echo '[INFO] Cleaning up testbed directories...'
-rm -rf $LUMD_HOME
+rm -rf $CDO_HOME
 rm -rf $OSMOSISD_HOME
 rm -rf $KID_HOME
 rm -rf $GAIAD_HOME
@@ -17,7 +17,7 @@ rm -rf $RELAYER_HOME
 
 echo '[INFO] Initializing networks keyring...'
 osmosisd keys add $IBC_KEY --home $OSMOSISD_HOME --keyring-backend test
-lumd keys add $IBC_KEY --home $LUMD_HOME --keyring-backend test
+chain-maind keys add $IBC_KEY --home $CDO_HOME --keyring-backend test
 kid keys add $IBC_KEY --home $KID_HOME --keyring-backend test
 gaiad keys add $IBC_KEY --home $GAIAD_HOME --keyring-backend test
 
@@ -28,10 +28,10 @@ osmosisd gentx $IBC_KEY 1000000000000uosmo --chain-id=$OSMOSIS_CHAIN_ID --home $
 osmosisd collect-gentxs --home $OSMOSISD_HOME
 
 echo '[INFO] Initializing Lum Network...'
-cp ./genesis_config/lumd.json $LUMD_HOME/config/genesis.json
-lumd add-genesis-account $(lumd keys show $IBC_KEY -a --home $LUMD_HOME --keyring-backend test) 1000000000000000ulum --home $LUMD_HOME
-lumd gentx $IBC_KEY 1000000000000ulum --chain-id=$LUM_CHAIN_ID --home $LUMD_HOME
-lumd collect-gentxs --home $LUMD_HOME
+cp ./genesis_config/chain-maind.json $CDO_HOME/config/genesis.json
+chain-maind add-genesis-account $(chain-maind keys show $IBC_KEY -a --home $CDO_HOME --keyring-backend test) 1000000000000000basecro --home $CDO_HOME
+chain-maind gentx $IBC_KEY 1000000000000basecro --chain-id=$CDO_CHAIN_ID --home $CDO_HOME
+chain-maind collect-gentxs --home $CDO_HOME
 
 echo '[INFO] Initializing Ki Network...'
 cp ./genesis_config/kid.json $KID_HOME/config/genesis.json
@@ -49,6 +49,6 @@ echo '[INFO] Initializing relayer confg and wallets...'
 rly config init --home $RELAYER_HOME
 cp ./relayer/$RELAYER_CONFIG_NAME $RELAYER_HOME/config/config.yaml
 rly keys add $OSMOSIS_CHAIN_ID $RLY_KEY --home $RELAYER_HOME
-rly keys add $LUM_CHAIN_ID $RLY_KEY --home $RELAYER_HOME
+rly keys add $CDO_CHAIN_ID $RLY_KEY --home $RELAYER_HOME
 rly keys add $KI_CHAIN_ID $RLY_KEY --home $RELAYER_HOME
 rly keys add $COSMOS_CHAIN_ID $RLY_KEY --home $RELAYER_HOME
