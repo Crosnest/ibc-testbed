@@ -8,8 +8,8 @@ echo '[INFO] Initializing environment...'
 echo '[INFO] Installing build essentials...'
 sudo apt-get install build-essential --yes
 
-echo '[INFO] Installing go v1.17.2...'
-wget -q -O - https://git.io/vQhTU | bash -s -- --version 1.17.2
+#echo '[INFO] Installing go v1.19.5...'
+#wget -q -O - https://git.io/vQhTU | bash -s -- --version 1.19.5
 
 ##
 ## Preparing tmp directory
@@ -21,17 +21,17 @@ cd ./tmp
 ## Install IBC enabled binaries
 ##
 
-echo '[INFO] Installing Osmosis binary...'
-git clone https://github.com/osmosis-labs/osmosis
+echo '[INFO] Installing Kujira binary...'
+git clone https://github.com/Team-Kujira/core
 cd osmosis
-git checkout v6.0.0
+git checkout v0.8.4-mainnet
 make install
 cd ..
 
 echo '[INFO] Installing chain-main Network binary...'
 git clone https://github.com/crypto-org-chain/chain-main chain-main
 cd chain-main
-git checkout v1.0.5
+git checkout v4.2.2
 go mod tidy
 make install
 cd ..
@@ -46,7 +46,7 @@ cd ..
 echo '[INFO] Installing Gaiad binary...'
 git clone https://github.com/cosmos/gaia
 cd gaia
-git checkout v5.0.2
+git checkout v9.0.1
 make install
 cd ..
 

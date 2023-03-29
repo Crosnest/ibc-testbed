@@ -4,7 +4,7 @@ After=network-online.target
 
 [Service]
 User=root
-ExecStart=/root/go/bin/chain-maind start --p2p.laddr tcp://0.0.0.0:27656 --rpc.laddr tcp://127.0.0.1:27657 --address tcp://0.0.0.0:27658 --grpc.address 0.0.0.0:27090 --grpc-web.address 0.0.0.0:27091 --home /root/.ibc-testbed/chain-maind
+ExecStart=/home/dpierret/go/bin/chain-maind start --minimum-gas-prices "0.0basecro" --p2p.laddr tcp://0.0.0.0:26656 --rpc.laddr tcp://127.0.0.1:26657 --address tcp://0.0.0.0:26658 --grpc.address 0.0.0.0:26090 --grpc-web.address 0.0.0.0:26091 --home /home/dpierret/.ibc-testbed/chain-maind
 Restart=on-failure
 RestartSec=3
 LimitNOFILE=4096

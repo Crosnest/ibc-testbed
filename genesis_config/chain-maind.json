@@ -74,6 +74,13 @@
     "feegrant": {
       "allowances": []
     },
+    "feeibc": {
+      "fee_enabled_channels": [],
+      "forward_relayers": [],
+      "identified_fees": [],
+      "registered_counterparty_payees": [],
+      "registered_payees": []
+    },
     "genutil": {
       "gen_txs": []
     },
@@ -99,6 +106,16 @@
       "voting_params": {
         "voting_period": "60s"
       }
+    },
+    "group": {
+      "group_members": [],
+      "group_policies": [],
+      "group_policy_seq": "0",
+      "group_seq": "0",
+      "groups": [],
+      "proposal_seq": "0",
+      "proposals": [],
+      "votes": []
     },
     "ibc": {
       "channel_genesis": {
@@ -133,6 +150,30 @@
         }
       }
     },
+    "icaauth": {
+      "params": {
+        "minTimeoutDuration": "3600s"
+      }
+    },
+    "interchainaccounts": {
+      "controller_genesis_state": {
+        "active_channels": [],
+        "interchain_accounts": [],
+        "params": {
+          "controller_enabled": true
+        },
+        "ports": []
+      },
+      "host_genesis_state": {
+        "active_channels": [],
+        "interchain_accounts": [],
+        "params": {
+          "allow_messages": [],
+          "host_enabled": true
+        },
+        "port": "icahost"
+      }
+    },
     "mint": {
       "minter": {
         "annual_provisions": "0.000000000000000000",
@@ -149,6 +190,10 @@
     },
     "nft": {
       "collections": []
+    },
+    "nonfungibletokentransfer": {
+      "port_id": "nft",
+      "traces": []
     },
     "params": null,
     "slashing": {
@@ -172,6 +217,7 @@
         "historical_entries": 10000,
         "max_entries": 7,
         "max_validators": 100,
+        "min_commission_rate": "0.000000000000000000",
         "unbonding_time": "1814400s"
       },
       "redelegations": [],
@@ -190,7 +236,7 @@
     "upgrade": {},
     "vesting": {}
   },
-  "chain_id": "crypto-org-testbet-1",
+  "chain_id": "crypto-ibctest-1",
   "consensus_params": {
     "block": {
       "max_bytes": "22020096",

@@ -4,8 +4,8 @@
 
 . ./.env
 
-echo '[DEBUG] Osmosis wallet (chain): '$(osmosisd keys show $IBC_KEY -a --home $OSMOSISD_HOME --keyring-backend test)
-osmosisd query bank balances $(osmosisd keys show $IBC_KEY -a --home $OSMOSISD_HOME --keyring-backend test) --node $OSMOSIS_RPC
+echo '[DEBUG] Osmosis wallet (chain): '$(kujirad keys show $IBC_KEY -a --home $OSMOSISD_HOME --keyring-backend test)
+kujirad query bank balances $(kujirad keys show $IBC_KEY -a --home $OSMOSISD_HOME --keyring-backend test) --node $OSMOSIS_RPC
 echo '[DEBUG] Cdo wallet (chain): '$(chain-maind keys show $IBC_KEY -a --home $CDO_HOME --keyring-backend test)
 chain-maind query bank balances $(chain-maind keys show $IBC_KEY -a --home $CDO_HOME --keyring-backend test) --node $CDO_RPC
 echo '[DEBUG] Ki wallet (chain): '$(kid keys show $IBC_KEY -a --home $KID_HOME --keyring-backend test)

@@ -1,34 +1,52 @@
 global:
-  api-listen-addr: :5183
-  timeout: 10s
-  light-cache-size: 20
+    api-listen-addr: :5183
+    timeout: 10s
+    memo: ""
+    light-cache-size: 20
 chains:
-  - key: rly-testbed-key
-    chain-id: lum-ibctest-1
-    rpc-addr: http://127.0.0.1:26657
-    account-prefix: lum
-    gas-adjustment: 2.0
-    gas-prices: 0.00001ulum
-    trusting-period: 36000s
-  - key: rly-testbed-key
-    chain-id: osmosis-ibctest-1
-    rpc-addr: http://127.0.0.1:36657
-    account-prefix: osmo
-    gas-adjustment: 2.0
-    gas-prices: 0.00001uosmo
-    trusting-period: 36000s
-  - key: rly-testbed-key
-    chain-id: ki-ibctest-1
-    rpc-addr: http://127.0.0.1:46657
-    account-prefix: ki
-    gas-adjustment: 2.0
-    gas-prices: 0.00001uxki
-    trusting-period: 36000s
-  - key: rly-testbed-key
-    chain-id: cosmos-ibctest-1
-    rpc-addr: http://127.0.0.1:56657
-    account-prefix: cosmos
-    gas-adjustment: 2.0
-    gas-prices: 0.00001uatom
-    trusting-period: 36000s
+    crypto-ibctest-1:
+        type: cosmos
+        value:
+            key: rly-testbed-key
+            chain-id: crypto-ibctest-1
+            rpc-addr: http://127.0.0.1:26657
+            account-prefix: cro
+            keyring-backend: test
+            gas-adjustment: 1.2
+            gas-prices: 0.01basecro
+            debug: false
+            timeout: 20s
+            output-format: json
+            sign-mode: direct
+            trusting-period: 36000s
+    ki-ibctest-1:
+        type: cosmos
+        value:
+            key: rly-testbed-key
+            chain-id: ki-ibctest-1
+            rpc-addr: http://127.0.0.1:46657
+            account-prefix: ki
+            gas-adjustment: 2.0
+            gas-prices: 0.00001uxki
+            keyring-backend: test
+            debug: false
+            timeout: 20s
+            output-format: json
+            sign-mode: direct
+            trusting-period: 36000s
+    osmosis-ibctest-1:
+        type: cosmos
+        value:
+            key: rly-testbed-key
+            chain-id: osmosis-ibctest-1
+            rpc-addr: http://127.0.0.1:36657
+            account-prefix: kujira
+            gas-adjustment: 2.0
+            gas-prices: 0.00001ukuji
+            keyring-backend: test
+            debug: false
+            timeout: 20s
+            output-format: json
+            sign-mode: direct
+            trusting-period: 36000s
 paths: {}
