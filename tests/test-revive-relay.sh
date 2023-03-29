@@ -53,7 +53,7 @@ fi
 
 # Relayer expiration must be high enough for the test to pass so we must wait
 echo '[INFO] Waiting 5min for the CDO <> Kujira client to expire...'
-sleep 120
+sleep 300
 
 # Trigger all transfers txs again
 request_transfers
